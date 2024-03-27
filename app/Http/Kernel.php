@@ -25,9 +25,18 @@ class Kernel extends HttpKernel
 
     /**
      * The application's route middleware groups.
+     * 
+
      *
      * @var array<string, array<int, class-string|string>>
      */
+
+
+    protected  $routeMiddleware = [
+
+        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+
+    ];
     protected $middlewareGroups = [
         'web' => [
             \App\Http\Middleware\EncryptCookies::class,
@@ -40,7 +49,7 @@ class Kernel extends HttpKernel
 
         'api' => [
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-            \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
+            \Illuminate\Routing\Middleware\ThrottleRequests::class . ':api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];

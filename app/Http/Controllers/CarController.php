@@ -17,6 +17,7 @@ class CarController extends Controller
     public function cars() {
         $models = MyModel::all();
         $dealers = User::all();
+        
 
         return view('admin.caradmin',compact('models','dealers'));
         
